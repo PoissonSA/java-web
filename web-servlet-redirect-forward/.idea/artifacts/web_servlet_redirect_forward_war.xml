@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="web-servlet-redirect-forward:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>web-servlet-redirect-forward</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="web-servlet-redirect-forward-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="web-servlet-redirect-forward:war exploded" />
+    </root>
+  </artifact>
+</component>
