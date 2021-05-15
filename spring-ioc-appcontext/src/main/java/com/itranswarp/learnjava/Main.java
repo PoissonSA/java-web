@@ -1,5 +1,6 @@
 package com.itranswarp.learnjava;
 
+import com.itranswarp.learnjava.service.MailService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.itranswarp.learnjava.service.User;
