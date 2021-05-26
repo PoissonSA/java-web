@@ -80,3 +80,24 @@ Action:
 
 Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
 
+2021-05-18 13:47:03.824  INFO 3388 --- [main] com.itranswarp.learnjava.Application     : Starting Application on LAPTOP-8MDJQKQ2 with PID 3388 (C:\Users\86180\Desktop\java-study\springboot-hello\target\classes started by 86180 in C:\Users\86180\Desktop\java-study\springboot-hello)
+2021-05-18 13:47:03.826  INFO 3388 --- [main] com.itranswarp.learnjava.Application     : No active profile set, falling back to default profiles: default
+2021-05-18 13:47:04.680  INFO 3388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-18 13:47:04.690  INFO 3388 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-18 13:47:04.690  INFO 3388 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2021-05-18 13:47:04.766  INFO 3388 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-18 13:47:04.766  INFO 3388 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 908 ms
+2021-05-18 13:47:04.856  WARN 3388 --- [main] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2021-05-18 13:47:04.857  INFO 3388 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-18 13:47:05.043  INFO 3388 --- [main] hsqldb.db.HSQLDB797A89F1B9.ENGINE        : checkpointClose start
+2021-05-18 13:47:05.044  INFO 3388 --- [main] hsqldb.db.HSQLDB797A89F1B9.ENGINE        : checkpointClose synched
+2021-05-18 13:47:05.051  INFO 3388 --- [main] hsqldb.db.HSQLDB797A89F1B9.ENGINE        : checkpointClose script done
+2021-05-18 13:47:05.060  INFO 3388 --- [main] hsqldb.db.HSQLDB797A89F1B9.ENGINE        : checkpointClose end
+2021-05-18 13:47:05.064  INFO 3388 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (feature not supported)
+2021-05-18 13:47:05.066  INFO 3388 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-18 13:47:05.186  INFO 3388 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-18 13:47:05.386  INFO 3388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-18 13:47:05.395  INFO 3388 --- [main] com.itranswarp.learnjava.Application     : Started Application in 1.938 seconds (JVM running for 2.487)
+2021-05-18 13:47:18.077  INFO 3388 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-18 13:47:18.078  INFO 3388 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-18 13:47:18.083  INFO 3388 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
