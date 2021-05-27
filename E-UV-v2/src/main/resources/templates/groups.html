@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - 项目</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+<span id="joinResult" th:text="${msg}" th:hidden="true"></span>
+<div class="wrapper wrapper-content animated fadeInUp">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Les groups</h5>
+                    <div class="ibox-tools">
+                        <a id="creatGroup" href="#" class="btn btn-primary btn-xs" onclick="createGroup()">Créer un groupe</a>
+                        <a id="joinGroup" href="#" class="btn btn-primary btn-xs" onclick="joinGroup()">Rejoins le groupe</a>
+                        <a id="enterGroup" href="#" class="btn btn-primary btn-xs" onclick="enterMyGroup()">Access au groupe</a>
+                        <a id="validerGroup" href="#" class="btn btn-primary btn-xs" onclick="validerGroup()">Valider un groupe</a>
+
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row m-b-sm m-t-sm">
+                    </div>
+
+                    <div class="project-list">
+                        <table class="table table-hover"  id="table" >
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 全局js -->
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/js/bootstrap-table.min.js"></script>
+
+<!-- 自定义js -->
+<script src="/js/groups.js?v=1.0.0"></script>
+</body>
+</html>

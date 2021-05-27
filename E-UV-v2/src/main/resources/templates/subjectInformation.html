@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>project information</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+
+        <style type="text/css">
+            .widget-pwpText{
+                height: 28px;
+                font-size: 13px;
+            }
+
+
+
+        </style>
+
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>
+                        <p  th:text="${subject.subjectname}" th:if="${not #strings.isEmpty(subject.subjectname)}"></p>
+                    </h5>
+                    <div class="ibox-tools">
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <dl class="dl-horizontal">
+                        <dt>Temps de creation:&nbsp;</dt>
+                        <dd th:text="${subject.createTime}"></dd>
+                        <dt>Maximum par groupe:&nbsp;</dt>
+                        <dd th:inline="text">[[${subject.numberMax}]]</dd>
+                        <dt>Mimimum par groupe:&nbsp;</dt>
+                        <dd th:text="${subject.numberMin}">
+                        </dd>
+                    </dl>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="10" th:text="${subject.description}"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="summernote"></div>
+
+
+</div>
+
+
+<!-- 全局js -->
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+
+<!-- 自定义js -->
+<script src="/js/content.js?v=1.0.0"></script>
+
+<!-- jQuery Validation plugin javascript-->
+<script src="/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="/js/plugins/validate/messages_zh.min.js"></script>
+
+<script src="js/demo/form-validate-demo.js"></script>
+
+<script src="/js/plugins/summernote/summernote.min.js"></script>
+<script src="/js/plugins/summernote/summernote-zh-CN.js"></script>
+
+<script>
+    $(document).ready(function () {
+    $('.form-control').attr("disabled",true);
+    });
+</script>
+
+
+
+</body>
+
+</html>

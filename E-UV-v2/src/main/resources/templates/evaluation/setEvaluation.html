@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>主页</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon"  href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" type="text/css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?v=4.4.0" type="text/css" rel="stylesheet">
+    <link   rel="stylesheet" type="text/css"  href="/css/animate.css" >
+    <link  rel="stylesheet"  type="text/css" href="/css/style.css?v=4.1.0"  >
+    <link  rel="stylesheet"  type="text/css" href="/css/bootstrap/bootstrap-datetimepicker.min.css"  >
+
+</head>
+<body>
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>Proposer une évaluation</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <form role="form" action="/Evaluation/createEvaluation.do" method="post">
+                    <div class="form-group">
+                        <label>Titre</label>
+                        <input type="text" placeholder="Entrer votre titre" class="form-control" name="etitle"required="true">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" placeholder="Entrer votre Description" class="form-control" name="edescp" required="true">
+                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label>Duration</label>-->
+<!--                        <input type="text" placeholder="Entrer votre duration(in hours)" class="form-control" name="eduration" required="true">-->
+<!--                    </div>-->
+                    <div class="form-group">
+                        <label>Sélectionner la date et l'heure</label>
+                        <!--指定 date标记-->
+                        <div class='input-group date' id='datetimepicker2'>
+                            <input type='text' class="form-control" placeholder="Sélectionner la date et l'heure" required="true"  name="eduration1" />
+                            <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Contenu</label>
+                        <textarea class="form-control" name="econtent" placeholder="Entrer votre contenu" rows="5" required="true"></textarea>
+                    </div>
+                    <div>
+                        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
+                            <strong>Publier</strong>
+                        </button>
+                    </div>
+                    <p class="text-center"  th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"><small>错误信息</small></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/js/plugins/layer/layer.min.js"></script>
+<!-- 自定义js -->
+<script src="/js/hAdmin.js?v=4.1.0"></script>
+<!--<script type="text/javascript" src="/js/homePage.js"></script>-->
+<script src="/js/plugins/pace/pace.min.js"></script>
+<script src="/js/bootstrap/moment.js"></script>
+
+<script src="/js/bootstrap/bootstrap-datetimepicker.min.js"></script>
+
+<script src="/js/evaluation/setEvaluation.js"></script>
+
+</body>
+</html>

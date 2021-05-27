@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>主页</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon"  href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" type="text/css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?v=4.4.0" type="text/css" rel="stylesheet">
+    <link   rel="stylesheet" type="text/css"  href="/css/animate.css" >
+    <link  rel="stylesheet"  type="text/css" href="/css/style.css?v=4.1.0"  >
+</head>
+<body>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="ibox">
+            <div class="ibox-content">
+                <div class="text-center article-title">
+                    <h1 th:inline="text">[[${evaluation.etitle}]] </h1>
+                </div>
+                <div>
+                    <dl class="dl-horizontal">
+                        <dt>Temps de creation：</dt>
+                        <dd th:inline="text">[[${evaluation.ecreated}]]</dd>
+                        <dt>date limite：</dt>
+                        <dd th:inline="text">[[${evaluation.eduration}]]</dd>
+                        <dt>Description：</dt>
+                        <dd th:inline="text">[[${evaluation.ecreated}]]</dd>
+                        <dt>Status：</dt>
+<!--                        状态判断-->
+                        <div th:switch = "${evaluation.evaild}">
+                            <dd th:case="true">
+                                <span class="label label-primary">Ouvert</span>
+                            </dd>
+
+                            <dd th:case="false">
+                                <span class="label label-danger">Fermé</span>
+                            </dd>
+                        </div>
+
+                    </dl>
+                </div>
+                <p class="text-center">
+                    <strong th:inline="text">[[${evaluation.econtent}]]</strong>
+                </p>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Réponse：</h2>
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <form role="form" th:action="'/Response/postResponse.do?eid='+${evaluation.eid}"    th:object="${evaluation}" method="post">
+<!--                                        <fieldset {{ disabled }}>-->
+                                        <div th:switch = "${evaluation.evaild}">
+                                            <fieldset th:case="true"  >
+                                            <div class="form-group">
+                                                <label>Content</label>
+                                                <textarea class="form-control" name="rcontent" placeholder="Entrer votre contenu" rows="5"></textarea>
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
+                                                    <strong>Publier</strong>
+                                                </button>
+                                            </div>
+                                            <p class="text-center">
+<!--                                                <small>信息</small>-->
+                                            </p>
+                                            </fieldset>
+                                            <fieldset th:case="false" disabled="true">
+                                                <div class="form-group">
+                                                    <label>Content</label>
+                                                    <textarea class="form-control" name="rcontent" placeholder="Entrer votre contenu" rows="5"></textarea>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
+                                                        <strong>Publier</strong>
+                                                    </button>
+                                                </div>
+                                                <p class="text-center">
+                                                    <!--                                                <small>信息</small>-->
+                                                </p>
+                                            </fieldset>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/js/plugins/layer/layer.min.js"></script>
+<!-- 自定义js -->
+<script src="/js/hAdmin.js?v=4.1.0"></script>
+<script type="text/javascript" src="/js/homePage.js"></script>
+<script src="/js/plugins/pace/pace.min.js"></script>
+<script src="/js/evaluation/getEvaluation.js"></script>
+
+</body>
+</html>

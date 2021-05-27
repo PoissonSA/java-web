@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>Group</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon"  href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" type="text/css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?v=4.4.0" type="text/css" rel="stylesheet">
+    <link   rel="stylesheet" type="text/css"  href="/css/animate.css" >
+    <link  rel="stylesheet"  type="text/css" href="/css/style.css?v=4.1.0"  >
+    <link  rel="stylesheet"  type="text/css" href="/css/bootstrap/fileinput.min.css"  >
+
+</head>
+<body>
+<div th:switch = "${hasGroup}">
+    <div class="col-lg-10 col-lg-offset-1" th:case="false">
+        <div class="ibox">
+            <div class="ibox-content">
+                <div class="text-center article-title">
+                    <h1 th:text="${msg}"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-10 col-lg-offset-1" th:case="true">
+        <div class="ibox">
+            <div class="ibox-content">
+                <div class="text-center article-title">
+                    <h1 th:text="${hashMap.group.groupname}"></h1>
+                </div>
+                <div>
+                    <dl class="dl-horizontal" th:each="user:${hashMap.users}">
+                        <dt>member:&nbsp;&nbsp;&nbsp;</dt >
+                        <dd th:text="${user.userName}"></dd>
+                    </dl>
+                </div>
+                <div>
+                    <dl class="dl-horizontal" >
+                        <dt>rendez-vous:&nbsp;&nbsp;&nbsp;</dt >
+                        <dd th:text="${hashMap.meeting.mdate}" th:if="${not #strings.isEmpty(hashMap.meeting)}"></dd>
+                    </dl>
+                </div>
+                <div >
+                    <dl class="dl-horizontal">
+                        <dt>Fichier:&nbsp;&nbsp;&nbsp;</dt >
+                        <a id="fileName" onclick="exportFile()" th:text="${hashMap.group.filename}" th:if="${not #strings.isEmpty(hashMap.group.filename)}"></a>
+<!--                        <dd th:text="${user.userName}"></dd>-->
+                    </dl>
+                </div>
+            </div>
+            <div class="ibox-content" id="meetingBox">
+                <label>Proposer un rendez-vous</label>
+                <!--指定 date标记-->
+                <div class='input-group date' id='datetimepicker2'>
+                    <input type='text' class="form-control" placeholder="Sélectionner la date et l'heure" required="true"  id="mDate" />
+                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                </div>
+                <p></p>
+                <button class="btn btn-sm btn-primary  m-t-n-xs" onclick="setMeeting()">
+                    <strong>Publier</strong>
+                </button>
+            </div>
+            <div class="ibox-content" id="uploadfileBox">
+                <div class="text-center article-title">
+                    <h2>Ajouter un travail：</h2>
+                    <input type="file" name="file"  id="uploadfile" class="imgFile form-control">
+                    <input type="hidden" name ="msg" id="msg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/js/plugins/layer/layer.min.js"></script>
+<!-- 自定义js -->
+<script src="/js/hAdmin.js?v=4.1.0"></script>
+<!--<script type="text/javascript" src="/js/homePage.js"></script>-->
+<script src="/js/bootstrap/moment.js"></script>
+<script src="/js/bootstrap/bootstrap-datetimepicker.min.js"></script>
+<script src="/js/plugins/pace/pace.min.js"></script>
+<script src="/js/bootstrap/piexif.min.js"></script>
+<script src="/js/bootstrap/sortable.min.js"></script>
+<script src="/js/bootstrap/purify.min.js"></script>
+<script src="/js/bootstrap/popper.min.js"></script>
+<script src="/js/bootstrap/fileinput.min.js"></script>
+<script src="/js/bootstrap/theme.js"></script>
+<script th:inline="javascript">
+
+    var hasgroup=[[${hasGroup}]]
+    if(hasgroup==true){
+        window.groupId= [[${hashMap.group.groupid}]];
+    }
+
+</script>
+<script src="/js/group/group.js"></script>
+
+
+
+
+</body>
+</html>

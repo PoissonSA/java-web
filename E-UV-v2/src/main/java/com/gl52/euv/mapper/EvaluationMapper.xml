@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gl52.euv.mapper.EvaluationMapper">
+  <resultMap id="BaseResultMap" type="com.gl52.euv.pojo.Evaluation">
+    <id column="eid" jdbcType="INTEGER" property="eid" />
+    <result column="etitle" jdbcType="VARCHAR" property="etitle" />
+    <result column="edesp" jdbcType="VARCHAR" property="edesp" />
+    <result column="eduration" jdbcType="TIMESTAMP" property="eduration" />
+    <result column="ecreated" jdbcType="TIMESTAMP" property="ecreated" />
+    <result column="evaild" jdbcType="BIT" property="evaild" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gl52.euv.pojo.Evaluation">
+    <result column="econtent" jdbcType="LONGVARCHAR" property="econtent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    eid, etitle, edesp, eduration, ecreated, evaild
+  </sql>
+  <sql id="Blob_Column_List">
+    econtent
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.gl52.euv.pojo.EvaluationExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_evaluation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.gl52.euv.pojo.EvaluationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_evaluation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_evaluation
+    where eid = #{eid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_evaluation
+    where eid = #{eid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.gl52.euv.pojo.EvaluationExample">
+    delete from t_evaluation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.gl52.euv.pojo.Evaluation">
+    insert into t_evaluation (eid, etitle, edesp, 
+      eduration, ecreated, evaild, 
+      econtent)
+    values (#{eid,jdbcType=INTEGER}, #{etitle,jdbcType=VARCHAR}, #{edesp,jdbcType=VARCHAR}, 
+      #{eduration,jdbcType=TIMESTAMP}, #{ecreated,jdbcType=TIMESTAMP}, #{evaild,jdbcType=BIT}, 
+      #{econtent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gl52.euv.pojo.Evaluation">
+    insert into t_evaluation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        eid,
+      </if>
+      <if test="etitle != null">
+        etitle,
+      </if>
+      <if test="edesp != null">
+        edesp,
+      </if>
+      <if test="eduration != null">
+        eduration,
+      </if>
+      <if test="ecreated != null">
+        ecreated,
+      </if>
+      <if test="evaild != null">
+        evaild,
+      </if>
+      <if test="econtent != null">
+        econtent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="etitle != null">
+        #{etitle,jdbcType=VARCHAR},
+      </if>
+      <if test="edesp != null">
+        #{edesp,jdbcType=VARCHAR},
+      </if>
+      <if test="eduration != null">
+        #{eduration,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ecreated != null">
+        #{ecreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="evaild != null">
+        #{evaild,jdbcType=BIT},
+      </if>
+      <if test="econtent != null">
+        #{econtent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.gl52.euv.pojo.EvaluationExample" resultType="java.lang.Long">
+    select count(*) from t_evaluation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_evaluation
+    <set>
+      <if test="record.eid != null">
+        eid = #{record.eid,jdbcType=INTEGER},
+      </if>
+      <if test="record.etitle != null">
+        etitle = #{record.etitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.edesp != null">
+        edesp = #{record.edesp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduration != null">
+        eduration = #{record.eduration,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ecreated != null">
+        ecreated = #{record.ecreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.evaild != null">
+        evaild = #{record.evaild,jdbcType=BIT},
+      </if>
+      <if test="record.econtent != null">
+        econtent = #{record.econtent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_evaluation
+    set eid = #{record.eid,jdbcType=INTEGER},
+      etitle = #{record.etitle,jdbcType=VARCHAR},
+      edesp = #{record.edesp,jdbcType=VARCHAR},
+      eduration = #{record.eduration,jdbcType=TIMESTAMP},
+      ecreated = #{record.ecreated,jdbcType=TIMESTAMP},
+      evaild = #{record.evaild,jdbcType=BIT},
+      econtent = #{record.econtent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_evaluation
+    set eid = #{record.eid,jdbcType=INTEGER},
+      etitle = #{record.etitle,jdbcType=VARCHAR},
+      edesp = #{record.edesp,jdbcType=VARCHAR},
+      eduration = #{record.eduration,jdbcType=TIMESTAMP},
+      ecreated = #{record.ecreated,jdbcType=TIMESTAMP},
+      evaild = #{record.evaild,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gl52.euv.pojo.Evaluation">
+    update t_evaluation
+    <set>
+      <if test="etitle != null">
+        etitle = #{etitle,jdbcType=VARCHAR},
+      </if>
+      <if test="edesp != null">
+        edesp = #{edesp,jdbcType=VARCHAR},
+      </if>
+      <if test="eduration != null">
+        eduration = #{eduration,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ecreated != null">
+        ecreated = #{ecreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="evaild != null">
+        evaild = #{evaild,jdbcType=BIT},
+      </if>
+      <if test="econtent != null">
+        econtent = #{econtent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.gl52.euv.pojo.Evaluation">
+    update t_evaluation
+    set etitle = #{etitle,jdbcType=VARCHAR},
+      edesp = #{edesp,jdbcType=VARCHAR},
+      eduration = #{eduration,jdbcType=TIMESTAMP},
+      ecreated = #{ecreated,jdbcType=TIMESTAMP},
+      evaild = #{evaild,jdbcType=BIT},
+      econtent = #{econtent,jdbcType=LONGVARCHAR}
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gl52.euv.pojo.Evaluation">
+    update t_evaluation
+    set etitle = #{etitle,jdbcType=VARCHAR},
+      edesp = #{edesp,jdbcType=VARCHAR},
+      eduration = #{eduration,jdbcType=TIMESTAMP},
+      ecreated = #{ecreated,jdbcType=TIMESTAMP},
+      evaild = #{evaild,jdbcType=BIT}
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+</mapper>

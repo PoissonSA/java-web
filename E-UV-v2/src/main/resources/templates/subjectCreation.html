@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CreateSubject</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/css/bootstrap/bootstrapValidator.min.css" rel="stylesheet">
+
+    <style>
+        .loginscreen.middle-box {
+            width: 800px;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+
+
+    <![endif]-->
+<!--    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>-->
+</head>
+<body class="gray-bg">
+<div class="ibox float-e-margins">
+<div class="ibox-title">
+    <h5>Créer un projet</h5>
+</div>
+<div class="ibox-content">
+    <div>
+        <h1></h1>
+        <form id="form" class="m-t" role="form" action="/Project/createSubject.do" method="post" >
+            <div class="form-group ">
+                <p>
+                    <label for="subjectName" >Nom du projet</label>
+                    <input type="text" class="form-control"  required="required" name="subjectName" id="subjectName">
+                </p>
+            </div>
+            <div class="form-group">
+                <label class="description">Description</label>
+                <textarea id="description" name="description" class="form-control" rows="5" required="required"></textarea>
+            </div>
+            <div class="form-group">
+            <p>
+                <label for="minimum" >Nombre minimum de personnes</label>
+                <select name="minimum"  id="minimum" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    <label for="maximum" >Nombre maximum de personnes</label>
+                    <select id="maximum" name="maximum" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </p>
+            </div>
+            <input type="button" name="submit1" class="btn btn-primary block full-width m-b" value="Proposer" onclick="check(this.form)" />
+
+
+<!--            <button type="submit" name="submit" class="btn btn-primary block full-width m-b" onclick="check(this.form)" >Submit</button>-->
+        </form>
+    </div>
+</div>
+</div>
+<!-- 全局js -->
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/js/bootstrap/bootstrapValidator.min.js"></script>
+<script src="/js/subjectCreation.js"></script>
+
+</body>
+</html>

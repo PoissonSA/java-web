@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>主页</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon"  href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" type="text/css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?v=4.4.0" type="text/css" rel="stylesheet">
+    <link   rel="stylesheet" type="text/css"  href="/css/animate.css" >
+    <link  rel="stylesheet"  type="text/css" href="/css/style.css?v=4.1.0"  >
+</head>
+<body>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="wrapper wrapper-content animated fadeInUp">
+            <ul class="notes">
+<!--               循环拿标签 -->
+                <li th:each="evaluation:${evaluationList}">
+                    <div>
+                        <small th:text="${evaluation.ecreated}"></small>
+                        <h4 th:text="${evaluation.etitle}"></h4>
+                        <p th:text="${evaluation.edesp}"></p>
+<!--                       进入详情页面 -->
+                        <a href="#" th:onclick="'gotoDetailPage(\'' + ${evaluation.eid} + '\');'" ><i class="fa fa-home "></i></a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/js/plugins/layer/layer.min.js"></script>
+<!-- 自定义js -->
+<script src="/js/hAdmin.js?v=4.1.0"></script>
+<!--<script type="text/javascript" src="/js/homePage.js"></script>-->
+<script src="/js/plugins/pace/pace.min.js"></script>
+<script src="/js/evaluation/getEvaluation.js"></script>
+
+</body>
+</html>
